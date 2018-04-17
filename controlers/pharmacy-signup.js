@@ -27,6 +27,13 @@ module.exports = function (app) {
             console.log("hash " + hash);
             var newPharmacy = {
                 first: req.body.first,
+                last:req.body.last,
+                phoneNumber:req.body.phoneNumber,
+                address:req.body.address,
+                NPI:req.body.NPI,
+                DEA:req.body.DEA,
+                HIN:req.body.HIN,
+                licenseNumber:req.body.licenseNumber,
                 email: req.body.email,
                 password: hash
             };

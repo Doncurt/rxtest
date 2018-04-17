@@ -24,10 +24,16 @@ module.exports = function (app) {
         bcrypt.hash(req.body.password, salt, (err, hash) => {
             console.log("hash " + hash);
             var newProvider = {
-                first: req.body.first,
-                last: req.body.last,
-                email: req.body.email,
-                password: hash
+              first: req.body.first,
+              last:req.body.last,
+              phoneNumber:req.body.phoneNumber,
+              address:req.body.address,
+              NPI:req.body.NPI,
+              DEA:req.body.DEA,
+              HIN:req.body.HIN,
+              licenseNumber:req.body.licenseNumber,
+              email: req.body.email,
+              password: hash
             };
             models.Provider.create(newProvider, {w:1}).then((savedProvider)=>{
                 //console.log(savedUser.dataValues.id)
