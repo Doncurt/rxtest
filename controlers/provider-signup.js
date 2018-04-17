@@ -5,14 +5,14 @@
 
 const models = require('../db/models');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('../auth.js');
-
+const bcrypt = require('bcryptjs');
+const auth = require('../auth.js')
 
 module.exports = function (app) {
     //Index
     app.get('/signup', function (req, res) {
          // res.render('signup', {});
-         res.send('Signup');
+         res.render('reg-selection');
      });
 
     // Provider Signup Routes
@@ -20,7 +20,7 @@ module.exports = function (app) {
      // Create
      app.post('/signup/provider', (req, res) => {
         // hash the password
-        bcrypt.genSalt(10, (err, salt) => {
+        bcrypt.genSalt(10, function (err, salt) {
         bcrypt.hash(req.body.password, salt, (err, hash) => {
             console.log("hash " + hash);
             var newProvider = {
